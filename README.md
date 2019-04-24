@@ -1,5 +1,7 @@
 # vue-ts-practice
 
+vue.js + typescript = vue.ts practice
+
 ## Project setup
 ```
 npm install
