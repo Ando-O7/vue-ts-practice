@@ -12,6 +12,7 @@ export default class MyButton extends Vue {
 
         public onClick() {
           alert(this.greet);
+          this.greet = 'こんにちは';
         }
 }
 </script>
