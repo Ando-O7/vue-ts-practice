@@ -1,6 +1,12 @@
 <template>
   <div class="home">
-    <MyButton :greet="greetText" @clicked="onMyButtonClicked"></MyButton>
+    <p>{{greetText}}</p>
+    <p>
+      <MyButton :greet="greetText" @clicked="onMyButtonClicked"></MyButton>
+    </p>
+    <p>
+      <ResetButton initialValue="Hello" v-model="greetText"></ResetButton>
+    </p>
   </div>
 </template>
 
@@ -10,13 +16,15 @@
     Vue
   } from 'vue-property-decorator';
   import MyButton from '@/components/MyButton.vue';
+  import ResetButton from '@/components/ResetButton.vue';
 
   @Component({
     components: {
       MyButton,
+      ResetButton,
     },
   })
-  
+
   export default class Home extends Vue {
     public greetText: string = 'Hello';
 
