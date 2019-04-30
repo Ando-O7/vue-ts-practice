@@ -1,5 +1,5 @@
 <template>
-  <v-btn @click="onClick">ResetButton</v-btn>
+  <v-btn @click="onClick">Reset</v-btn>
 </template>
 
 <script lang="ts">
@@ -12,12 +12,16 @@
 
     @Component
     export default class ResetButton extends Vue {
-        @Prop()
-        public initialValue!: string;
+        private initialValue!: string;
 
         // モデルバインドのために記述必須
         @Prop()
         public value!: string;
+
+        // ライフサイクルフック
+        public created() {
+            this.initialValue = this.value;
+        }
 
         // モデルバインドのために記述必須
         @Emit()
