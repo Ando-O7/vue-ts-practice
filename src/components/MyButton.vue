@@ -19,7 +19,6 @@
     public clicked() {}
 
     public onClick() {
-      alert(this.greet);
       this.clicked();
     }
   }
