@@ -1,8 +1,9 @@
 <template>
   <div class="home">
     <p>{{greetText}}</p>
+    <p>count : {{count}}</p>
     <p>
-      <MyButton :greet="greetText" @clicked="onMyButtonClicked"></MyButton>
+      <MyButton :greet="greetText" @click="onMyButtonClicked"></MyButton>
     </p>
     <p>
       <ResetButton v-model="greetText"></ResetButton>
@@ -26,9 +27,11 @@
   })
 
   export default class Home extends Vue {
+    private count: number = 0;
     public greetText: string = 'Hello';
 
-    public onMyButtonClicked() {
+    public onMyButtonClicked(count: number) {
+      this.count = count;
       this.greetText = 'こんにちは';
     }
   }

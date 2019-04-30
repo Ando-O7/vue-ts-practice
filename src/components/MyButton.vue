@@ -12,14 +12,17 @@
 
   @Component
   export default class MyButton extends Vue {
+    private count: number = 0;
+
     @Prop()
     public greet ? : string;
 
     @Emit()
-    public clicked() {}
+    public click(count: number) {}
 
     public onClick() {
-      this.clicked();
+        this.count++;
+        this.click(this.count);
     }
   }
 
