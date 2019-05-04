@@ -15,6 +15,7 @@
 <script lang="ts">
   import {
     Component,
+    Watch,
     Vue
   } from 'vue-property-decorator';
   import MyButton from '@/components/MyButton.vue';
@@ -29,14 +30,21 @@
 
   export default class Home extends Vue {
     private count: number = 0;
-    private isRegulars: boolean = false;
     public greetText: string = 'Hello';
+
+    public get isRegulars(): boolean {
+      return this.count >= 5;
+    }
+
+    @Watch('count')
+    public countChanged() {
+      if (this.count === 5) {
+        alert('常連になりました');
+      }
+    }
 
     public onMyButtonClicked(count: number) {
       this.count = count;
-      if (this.count >= 5) {
-        this.isRegulars = true;
-      }
       this.greetText = 'こんにちは';
     }
   }
